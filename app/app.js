@@ -2,6 +2,8 @@ import angular from "angular";
 import ngAnimate from "angular-animate";
 import ngCookies from "angular-cookies";
 
+console.log(test);
+
 const module = angular.module("composer", [
   ngAnimate,
   "ui.bootstrap",

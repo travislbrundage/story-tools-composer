@@ -26,5 +26,20 @@ export default {
       1}/${today.getDate()}/${today.getFullYear()}`;
     const datetime = `${date} ${formatAMPM(today)}`;
     return datetime;
+  },
+  getUseProxyParam: server => {
+    return goog.isDefAndNotNull(server.use_proxy) ? server.use_proxy : false;
+  },
+  useProxyUrlParam: (use_proxy, url, configService) => {
+    if (goog.isDefAndNotNull(use_proxy) && goog.isDefAndNotNull(configService)
+        && use_proxy === true) {
+      url = decodeURIComponent(url);
+      if (url.indexOf(configService.configuration.proxy) < 0) {
+        url = configService.configuration.proxy + encodeURIComponent(url);
+      } else {
+        url = encodeURIComponent(url);
+      }
+    }
+    return url;
   }
 };

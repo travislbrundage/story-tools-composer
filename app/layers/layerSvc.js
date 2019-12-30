@@ -101,6 +101,7 @@ function layerSvc(appConfig, MapManager, stateSvc) {
     const title = layerInfo.title;
     const remote = layerInfo.remote;
     if (remote) {
+      // TODO: wrap absolutePath in proxy or do it at getRemoteServiceUrl?
       svc.getRemoteServiceUrl(name).then(res => {
         const server = {
           absolutePath: res.url,
@@ -178,6 +179,7 @@ function layerSvc(appConfig, MapManager, stateSvc) {
               objects[i].alternate.indexOf("geonode") > -1
                 ? objects[i].alternate.split("geonode:")[1]
                 : objects[i].alternate;
+            // TODO: do searchObjects need the use_proxy value?
             searchObjects.push({
               title: objects[i].title,
               typename,
@@ -208,6 +210,7 @@ function layerSvc(appConfig, MapManager, stateSvc) {
       fetch(`/layers/${name}/remote`)
         .then(resp => resp.json())
         .then(data => {
+          // TODO: Should the data look for use_proxy and wrap url?
           const containsQuery = data.data.indexOf("?") > -1;
           const url = containsQuery ? data.data.split("?")[0] : data.data;
           const query = containsQuery ? data.data.split("?")[1] : false;
