@@ -32,6 +32,8 @@ function navigationSvc($location, $log, stateSvc, appConfig) {
       PubSub.publish("changingChapter", data);
     } else {
       // Go from last to first.
+      $log.info("Django context version pls");
+      $log.info(appConfig.version);
       $log.info("Going to Chapter ", 1);
       const data = {
         currentChapterIndex: thisChapter - 1,

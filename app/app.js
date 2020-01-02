@@ -49,7 +49,9 @@ module.constant("appConfig", {
       canStyleWMS: true
     }
   ],
-  iconCommonsHost: "http://mapstory.dev.boundlessgeo.com"
+  iconCommonsHost: "http://mapstory.dev.boundlessgeo.com",
+  // TODO: This boi a problem b/c we can't assign window values here apparently
+  version: window.mapstory.composer.config.version
 });
 
 module.run(() => {

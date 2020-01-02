@@ -7,6 +7,7 @@ window.mapstory.composer.config = {
   userprofilename:  "Tester" ,
   userprofileemail:  "test@test.org" ,
   currentLanguage: "en",
+  // TODO: Proxy url already exists here
   proxy: "/proxy/?url=",
   rest: "/maps/",
   ajaxLoginUrl: "/account/ajax_login",
@@ -14,6 +15,7 @@ window.mapstory.composer.config = {
   localGeoServerBaseUrl: "https://docker/geoserver/",
   localCSWBaseUrl: "http://docker:8000/catalogue/csw",
   csrfToken: "",
+  version: "test version"
 }
 window.mapstory.composer.config.branding = {
   siteName: "MapStory",
